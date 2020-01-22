@@ -1190,6 +1190,9 @@ ${CMAKE} .. \
     -DBOOST_J=$CEPH_SMP_NCPUS \
     -DWITH_GRAFANA=ON
 
+cat ./CMakeFiles/CMakeOutput.log
+cat ./CMakeFiles/CMakeError.log
+
 make "$CEPH_MFLAGS_JOBS"
 
 
