@@ -14,7 +14,7 @@
 #
 set -e
 DIR=/tmp/install-deps.$$
-trap "rm -fr $DIR" EXIT
+#trap "rm -fr $DIR" EXIT
 mkdir -p $DIR
 if test $(id -u) != 0 ; then
     SUDO=sudo
@@ -391,6 +391,8 @@ else
         munge_ceph_spec_in $for_make_check $DIR/ceph.spec
         $SUDO $zypp_install $(rpmspec -q --buildrequires $DIR/ceph.spec) || exit 1
         $SUDO $zypp_install libxmlsec1-1 libxmlsec1-nss1 libxmlsec1-openssl1 xmlsec1-devel xmlsec1-openssl-devel
+        echo "$DIR"
+        exit 0
         ;;
     alpine)
         # for now we need the testing repo for leveldb
