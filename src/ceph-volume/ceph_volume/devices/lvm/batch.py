@@ -1,6 +1,8 @@
 import argparse
 import json
 import logging
+import json
+import logging
 from textwrap import dedent
 from ceph_volume import terminal, decorators
 from ceph_volume.api.lvm import Volume
