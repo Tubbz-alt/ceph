@@ -889,24 +889,6 @@ LV_FIELDS = 'lv_tags,lv_path,lv_name,vg_name,lv_uuid,lv_size'
 LV_CMD_OPTIONS =  ['--noheadings', '--readonly', '--separator=";"', '-a',
                    '--units=b', '--nosuffix']
 
-def get_api_lvs():
-    """
-    Return the list of logical volumes available in the system using flags to include common
-    metadata associated with them
-
-    Command and delimited output should look like::
-
-        $ lvs --noheadings --readonly --separator=';' -a -o lv_tags,lv_path,lv_name,vg_name
-          ;/dev/ubuntubox-vg/root;root;ubuntubox-vg
-          ;/dev/ubuntubox-vg/swap_1;swap_1;ubuntubox-vg
-
-    """
-    stdout, stderr, returncode = process.call(
-        ['lvs'] + LV_CMD_OPTIONS +  ['-o', LV_FIELDS],
-        verbose_on_failure=False
-    )
-    return _output_parser(stdout, LV_FIELDS)
-
 
 class Volume(object):
     """
