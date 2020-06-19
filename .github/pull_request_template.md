@@ -38,20 +38,10 @@ https://raw.githubusercontent.com/ceph/ceph/master/SubmittingPatches.rst
 ---
 
 <details>
-<summary>Show available Jenkins commands</summary>
+<summary>Show available @susebot commands</summary>
 
-- `jenkins retest this please`
-- `jenkins test classic perf`
-- `jenkins test crimson perf`
-- `jenkins test signed`
-- `jenkins test make check`
-- `jenkins test make check arm64`
-- `jenkins test submodules`
-- `jenkins test dashboard`
-- `jenkins test dashboard backend`
-- `jenkins test docs`
-- `jenkins render docs`
-- `jenkins test ceph-volume all`
-- `jenkins test ceph-volume tox`
+- `@susebot run make check`
+- `@susebot run make check sles`
+- `@susebot run make check leap`
 
 </details>
