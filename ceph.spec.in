@@ -182,6 +182,7 @@ BuildRequires:  openldap2-devel
 BuildRequires:	python-Cython
 BuildRequires:	python-PrettyTable
 BuildRequires:	python-Sphinx
+BuildRequires:	python-packaging
 BuildRequires:  rdma-core-devel
 %endif
 %if 0%{?fedora} || 0%{?rhel}
