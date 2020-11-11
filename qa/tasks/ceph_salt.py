@@ -252,14 +252,13 @@ class CephSalt(Task):
         first_mon = self.ctx.ceph[self.cluster].first_mon
         first_mgr = self.ctx.ceph[self.cluster].first_mgr
         for host, _ in self.remote_lookup_table.items():
-            self.master_remote.sh("sudo ceph-salt config /ceph_cluster/minions"
-                                  " add {}".format(host))
-            self.master_remote.sh("sudo ceph-salt config "
-                                  "/ceph_cluster/roles/cephadm "
-                                  "add {}".format(host))
-            self.master_remote.sh("sudo ceph-salt config "
-                                  "/ceph_cluster/roles/admin "
-                                  "add {}".format(host))
+            self.master_remote.sh(
+                f"sudo ceph-salt config /ceph_cluster/minions add {host}")
+            if host == self.master_remote.hostname:
+                self.master_remote.sh(
+                    f"sudo ceph-salt config /ceph_cluster/roles/cephadm add {host}")
+                self.master_remote.sh(
+                    f"sudo ceph-salt config /ceph_cluster/roles/admin add {host}")
         if len(self.remote_lookup_table.keys()) <= 3:
             self.master_remote.sh("sudo ceph-salt config "
                                   "/cephadm_bootstrap/ceph_conf add global")
