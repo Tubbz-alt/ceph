@@ -413,6 +413,9 @@ static int cls_user_reset_stats(cls_method_context_t hctx,
 	return -EIO;
       }
       add_header_stats(&header.stats, e);
+      if (!keys.empty()) {
+        from_index = keys.rbegin()->first;
+      }
     }
   } while (truncated);
 
