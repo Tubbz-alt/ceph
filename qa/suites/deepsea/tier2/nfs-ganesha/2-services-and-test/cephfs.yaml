@@ -9,5 +9,6 @@ tasks:
         - exec:
                 client.salt_master:
                         - 'ceph -s'
+                        - 'sleep 300'
         - deepsea.validation:
                 ganesha_smoke_test:
